@@ -40,17 +40,12 @@ const handleNewBlockWS = async (block: Block) => {
       delay,
     };
 
-    const filePath = path.join(__dirname, '../logs/output.log');
-    let data = [];
-    if (await fileExists(filePath)) {
-      const fileContent = await fs.readFile(filePath, 'utf-8');
-      data = JSON.parse(fileContent);
-    }
-    data.push(logEntry);
-    await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+    // Ensure the logs directory exists
+    const logDirPath = path.join(__dirname, '../logs/output.log');
+    await fs.mkdir(logDirPath, { recursive: true });
 
     // Append log entry to logs/output.log
-    const logFilePath = path.join(__dirname, '../logs/output.log');
+    const logFilePath = path.join(logDirPath, 'output.log');
     await fs.appendFile(logFilePath, JSON.stringify(logEntry) + '\n');
   } catch (error) {
     console.error('Error handling new block:', error);
