@@ -41,7 +41,7 @@ const handleNewBlockWS = async (block: Block) => {
     };
 
     // Ensure the logs directory exists
-    const logDirPath = path.join(__dirname, '../logs/output.log');
+    const logDirPath = path.join(__dirname, '../logs');
     await fs.mkdir(logDirPath, { recursive: true });
 
     // Append log entry to logs/output.log
