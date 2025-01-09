@@ -9,7 +9,7 @@ interface Block {
   timestamp: bigint;
 }
 
-const durationInSeconds = 15; // Set the duration for how long the script should run
+const durationInSeconds = 120; // Set the duration for how long the script should run
 let blockCount = 0;
 let totalDelay = 0;
 let delays: number[] = [];
@@ -40,7 +40,7 @@ const handleNewBlockWS = async (block: Block) => {
       delay,
     };
 
-    const filePath = path.join(__dirname, '../../blockTimestampsWS.json');
+    const filePath = path.join(__dirname, '../logs/output.log');
     let data = [];
     if (await fileExists(filePath)) {
       const fileContent = await fs.readFile(filePath, 'utf-8');
@@ -48,6 +48,10 @@ const handleNewBlockWS = async (block: Block) => {
     }
     data.push(logEntry);
     await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+
+    // Append log entry to logs/output.log
+    const logFilePath = path.join(__dirname, '../logs/output.log');
+    await fs.appendFile(logFilePath, JSON.stringify(logEntry) + '\n');
   } catch (error) {
     console.error('Error handling new block:', error);
   }
