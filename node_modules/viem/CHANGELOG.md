@@ -1,5 +1,29 @@
 # viem
 
+## 2.22.8
+
+### Patch Changes
+
+- [#3216](https://github.com/wevm/viem/pull/3216) [`7ad24ff6cb1770a1f5ad4d9c99bfee9fd99b12b5`](https://github.com/wevm/viem/commit/7ad24ff6cb1770a1f5ad4d9c99bfee9fd99b12b5) Thanks [@Hebx](https://github.com/Hebx)! - Added Citrea Testnet chain.
+
+## 2.22.7
+
+### Patch Changes
+
+- [#3164](https://github.com/wevm/viem/pull/3164) [`8160d4212c496be8857e84ed2501a6956b1a3ead`](https://github.com/wevm/viem/commit/8160d4212c496be8857e84ed2501a6956b1a3ead) Thanks [@danijelTxFusion](https://github.com/danijelTxFusion)! - **ZKSync Extension:** Added `requestExecute` wallet action and `getL2HashFromPriorityOp` utility function.
+
+- [#3213](https://github.com/wevm/viem/pull/3213) [`6b44506c15dd7a1635cb36e46149e0617cf2926e`](https://github.com/wevm/viem/commit/6b44506c15dd7a1635cb36e46149e0617cf2926e) Thanks [@Gwen-M](https://github.com/Gwen-M)! - Deprecated Linea Goerli chain.
+
+## 2.22.6
+
+### Patch Changes
+
+- [#3209](https://github.com/wevm/viem/pull/3209) [`b0971fa96103094fb71447f36e43a034c465b80b`](https://github.com/wevm/viem/commit/b0971fa96103094fb71447f36e43a034c465b80b) Thanks [@hello-jdj](https://github.com/hello-jdj)! - Added Multicall address to Kroma.
+
+- [#3212](https://github.com/wevm/viem/pull/3212) [`14d850b1cb45474cd76e60fa0785d8e9c57ddb4b`](https://github.com/wevm/viem/commit/14d850b1cb45474cd76e60fa0785d8e9c57ddb4b) Thanks [@wei-b0](https://github.com/wei-b0)! - Added Huddle01 chain.
+
+- [`fd17ba92ee54af65a841823daab58991bfeb76c0`](https://github.com/wevm/viem/commit/fd17ba92ee54af65a841823daab58991bfeb76c0) Thanks [@jxom](https://github.com/jxom)! - **Experimental(EIP-7702):** Renamed `delegate` to `sponsor` on `signAuthorization`.
+
 ## 2.22.5
 
 ### Patch Changes
