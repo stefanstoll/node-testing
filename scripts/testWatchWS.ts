@@ -1,4 +1,4 @@
-import { clientRPC,clientWS } from '../client/client';
+import { clientWS } from '../client/client';
 import fs from 'fs/promises';
 import path from 'path';
 import cliProgress from 'cli-progress';
@@ -38,37 +38,6 @@ rl.question('Enter the duration in seconds: ', (input) => {
       const receivedTimestamp = new Date();
       const delay = receivedTimestamp.getTime() - blockTimestamp.getTime();
 
-      const fullBlock = await clientRPC.getBlock({ blockNumber: block.number });
-      console.log('fullBlock', fullBlock);
-
-      // Fetch the 10th transaction if it exists
-      if (fullBlock.transactions && fullBlock.transactions.length >= 10) {
-        const transactionHash = fullBlock.transactions[9]; // 10th transaction (0-indexed)
-
-        const transactionTimestamp = new Date().toLocaleString('en-US', {
-          timeZone: 'America/Los_Angeles',
-          hour12: false,
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          fractionalSecondDigits: 3, // Include milliseconds
-        });
-
-        try {
-          const transaction = await clientRPC.getTransaction({ hash: transactionHash });
-
-          console.log('Transaction Timestamp:', transactionTimestamp);
-          console.log('Transaction Details:', transaction);
-        } catch (error) {
-          console.error('Error fetching transaction details:', error);
-        }
-      } else {
-        console.log('Less than 10 transactions in this block.');
-      }
-      
       blockCount++;
       totalDelay += delay;
       delays.push(delay);
